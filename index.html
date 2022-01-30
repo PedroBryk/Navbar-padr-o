@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="normalize.css">
     <title>Nav bar padrão</title>
@@ -22,10 +23,13 @@
             </ul>
         </nav>
         <div class="toogle">
-            <img src="#" alt="toogle mobile" class="toogle__mobile">
+            <img src="toogle__white.png" alt="toogle mobile" class="toogle__mobile">
         </div>
     </section>
     <section class="nav__container-mobile">
+        <div class="back__mobile">
+            <img src="back__white.png" alt="voltar" class="back__mobile-img">
+        </div>
         <nav class="navegacao__mobile">
             <ul class="itens__mobile">
                 <li class="item__mobile">Exemplo</li>
@@ -35,5 +39,27 @@
             </ul>
         </nav>
     </section>
+    <script>
+
+        $('.toogle__mobile').on("click",mobile);
+
+        function mobile(){
+
+            $('.nav__container').css("display","none");
+
+            $('.nav__container-mobile').css("display","block");
+        }
+
+        $('.back__mobile-img').on("click",fechaMobile);
+
+        function fechaMobile(){
+
+            $('.nav__container').css("display","block");
+
+            $('.nav__container-mobile').css("display","none");
+
+        }
+
+    </script>
 </body>
 </html>

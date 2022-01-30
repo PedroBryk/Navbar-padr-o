@@ -25,10 +25,26 @@
     color: tomato;
 }
 
-.nav__container-mobile{
-    display: none;
-}
-
 .toogle__mobile{
     display: none;
+    transition: .4s;
 }
+
+.nav__container-mobile{
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+
+}
+
+    @media(max-width: 800px){
+        .itens{
+            display: none;
+        }
+
+        .toogle__mobile{
+            display: block;
+        }
+
+    }
