@@ -4,62 +4,38 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="normalize.css">
     <title>Nav bar padrão</title>
 </head>
 <body>
-    <section class="nav__container">
-        <div class="logo">
-            <img src="hamburguer__logo.png" alt="imagem logotipo" class="logo__image">
-        </div>
+    <header class="nav__bar">
+        <img src="hamburguer__logo.png" alt="logotipo" class="logo">
+
         <nav class="navegacao">
-            <ul class="itens">
-                <li class="item">Exemplo</li>
-                <li class="item">Exemplo</li>
-                <li class="item">Exemplo</li>
-                <li class="item">Exemplo</li>
+            <button class="btnmobile">Menu
+
+                <span class="hamburguer"></span>
+            </button>
+            <ul class="menu">
+                <li class="item">Cardápio</li>
+                <li class="item">Sobre</li>
+                <li class="item">Contato</li>
             </ul>
         </nav>
-        <div class="toogle">
-            <img src="toogle__white.png" alt="toogle mobile" class="toogle__mobile">
-        </div>
-    </section>
-    <section class="nav__container-mobile">
-        <div class="back__mobile">
-            <img src="back__white.png" alt="voltar" class="back__mobile-img">
-        </div>
-        <nav class="navegacao__mobile">
-            <ul class="itens__mobile">
-                <li class="item__mobile">Exemplo</li>
-                <li class="item__mobile">Exemplo</li>
-                <li class="item__mobile">Exemplo</li>
-                <li class="item__mobile">Exemplo</li>
-            </ul>
-        </nav>
-    </section>
+    </header>
+
     <script>
+        $('.btnmobile').on("click",botaoToogle);
+        
 
-        $('.toogle__mobile').on("click",mobile);
+        function botaoToogle(){
 
-        function mobile(){
+            $('.navegacao').addClass( "active" );
 
-            $('.nav__container').css("display","none");
-
-            $('.nav__container-mobile').css("display","block");
-        }
-
-        $('.back__mobile-img').on("click",fechaMobile);
-
-        function fechaMobile(){
-
-            $('.nav__container').css("display","block");
-
-            $('.nav__container-mobile').css("display","none");
-
-        }
-
+        }       
     </script>
 </body>
 </html>

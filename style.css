@@ -1,50 +1,107 @@
-.nav__container{
+.nav__bar{
+    box-sizing: border-box;
+    background-color: black;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding-left: 8%;
-    padding-right: 8%;
-    background-color: black;
     height: 70px;
+    padding: 1rem;
+    justify-content: space-between;
 }
 
-.itens{
+.menu{
     display: flex;
-    color: white;
-    list-style: none;
+    gap: .5rem;
+}
+
+.menu li{
+    padding: .5rem;
+    display: block;
+  
 }
 
 .item{
-    margin-left: 20%;
-    font-size: 20px;
+    list-style: none;
+    color: white;
+    font-family: sans-serif;
     cursor: pointer;
-    transition: .3s;
+    padding: .5rem;
 }
 
-.item:hover{
-    color: tomato;
-}
-
-.toogle__mobile{
+.btnmobile{
     display: none;
-    transition: .4s;
 }
 
-.nav__container-mobile{
-    display: none;
-    width: 100vw;
-    height: 100vh;
-    background-color: black;
+    @media(max-width: 600px) {
 
-}
-
-    @media(max-width: 800px){
-        .itens{
-            display: none;
+        .btnmobile{
+            display: flex;
+            padding: .5rem 1rem;
+            font-size: 1rem;
+            border: none;
+            background: none;
+            cursor: pointer;
         }
 
-        .toogle__mobile{
+        .hamburguer{
+            border-top: 3px solid white;
+            border-radius: 3px;
+            width: 40px;
             display: block;
+
         }
 
+        .hamburguer::after, .hamburguer::before{
+            content: '';
+            display: block;
+            width: 40px;
+            height: 3px;
+            background: white;
+            margin-top: 5px;
+            transition: .5s;
+            position: relative;
+            border-radius: 3px;
+
+        }
+
+        .navegacao.active .hamburguer{
+            border-top-color: transparent;
+        }
+
+        .navegacao.active .hamburguer::before{
+            transform: rotate(135deg);
+        }
+
+        .navegacao.active .hamburguer::after{
+            transform: rotate(-135deg);
+            top: -7px;
+        }
+
+        .menu{
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 0;
+            transition: .9s;
+            top: 54px;
+            padding-top: 7%;
+            right: 0;
+            background-color: black;
+            z-index: 1000;
+            visibility: hidden;
+            overflow-y: hidden;
+        }
+
+        .menu li{
+            padding: 1rem 0;
+            margin: 0 1rem;
+            border-bottom: 2px solid white;
+        }
+
+        .navegacao.active .menu{
+            visibility: visible;
+            height: calc(100vh - 54px);
+            overflow-y: auto;
+            
+        }
     }
+
